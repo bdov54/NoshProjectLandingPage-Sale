@@ -195,3 +195,19 @@
     io.observe(order);
   }
 })(); 
+document.addEventListener('DOMContentLoaded', function() {
+  const slides = document.querySelectorAll('#kocCarousel .kocSlide');
+  
+  if (slides.length > 0) {
+    let currentSlide = 0;
+    
+    function autoChangeSlide() {
+      slides[currentSlide].classList.remove('active');
+      currentSlide = (currentSlide + 1) % slides.length;
+      slides[currentSlide].classList.add('active');
+    }
+
+    // Tự động chuyển sau 5000ms (5 giây)
+    setInterval(autoChangeSlide, 5000);
+  }
+});
